@@ -1,1 +1,1 @@
-Intended for use as a basic template for Webpack projects.
+The intention of this project is to create a basic weather forecast site that a allows a user to check the weather of an entered location. Completion of this project will demonstrate an understanding of using APIs, as well as promises & async/await.
