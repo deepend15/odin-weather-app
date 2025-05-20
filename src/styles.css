@@ -19,10 +19,14 @@ html {
 } */
 
 body {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-family:
     system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  padding: 20px;
+  display: grid;
+  gap: 50px;
+  justify-items: center;
 }
 
 input,
@@ -39,4 +43,46 @@ h4,
 h5 {
   font-size: inherit;
   font-weight: inherit;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+.location-div {
+  width: 450px;
+  display: grid;
+  gap: 35px;
+}
+
+form {
+  display: grid;
+  gap: 23px;
+  justify-items: center;
+}
+
+form > p:first-child {
+  display: flex;
+  gap: 12px;
+  font-size: 2rem;
+  align-items: center;
+}
+
+form input {
+  padding: 5px;
+  font-size: 1.8rem;
+}
+
+.get-weather-btn {
+  padding: 5px 15px;
+  font-size: 1.7rem;
+}
+
+.location-text {
+  font-size: 1.5rem;
+  display: flex;
+  column-gap: 20px;
+  row-gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }

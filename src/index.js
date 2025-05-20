@@ -1,31 +1,18 @@
 import "./styles.css";
+import { getWeather } from "./get-weather-fn.js";
 
-async function getWeather(location) {
-  let locationArray = location.split("");
+const location = document.querySelector("#location");
+const getWeatherBtn = document.querySelector(".get-weather-btn");
 
-  locationArray.forEach((item, i) => {
-    if (item === " ") {
-      locationArray[i] = "%20";
-    }
-    if (item === ",") {
-      locationArray[i] = "%2C";
-    }
-  });
+location.addEventListener("input", () => {
+  location.setCustomValidity("");
+})
 
-  let formattedLocation = locationArray.join("");
-
-  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${formattedLocation}?key=BE4LHN4XH2WFAA3FXBB5GL4PE`;
-
-  try {
-    const response = await fetch(url, { mode: "cors" });
-
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
-
-    const json = await response.json();
-    console.log(json);
-  } catch (error) {
-    console.error(error.message);
+getWeatherBtn.addEventListener("click", (e) => {
+  if (location.validity.valueMissing) {
+    location.setCustomValidity("Umm you forgot something \u{1F480}");
+  } else {
+    e.preventDefault();
+    getWeather(location.value).then((data) => console.log(data));
   }
-}
+})
