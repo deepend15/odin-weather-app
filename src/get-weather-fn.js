@@ -41,6 +41,7 @@ export async function getWeather(location) {
     weatherObj.windSpeed = json.currentConditions.windspeed;
     weatherObj.description = json.description;
     weatherObj.location = json.resolvedAddress;
+    weatherObj.timeZone = json.timezone;
 
     // console.log(weatherObj);
     return weatherObj;

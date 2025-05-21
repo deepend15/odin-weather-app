@@ -47,10 +47,11 @@ h5 {
 
 h1 {
   font-size: 2.5rem;
+  font-weight: 500;
 }
 
 .location-div {
-  width: 450px;
+  width: 455px;
   display: grid;
   gap: 35px;
 }
@@ -85,4 +86,61 @@ form input {
   row-gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.weather-div {
+  width: 85%;
+}
+
+.vibe-div {
+  display: grid;
+  justify-items: center;
+  gap: 25px;
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.vibe-div > p {
+  line-height: 1.5;
+}
+
+.vibe-div > p > span {
+  font-weight: bold;
+}
+
+.vibe-div > p:last-child {
+  font-size: 1.8rem;
+}
+
+.weather-details-div {
+  margin-top: 45px;
+  display: flex;
+  justify-content: center;
+  gap: 75px;
+  font-size: 2rem;
+}
+
+.column {
+  display: grid;
+  gap: 25px;
+}
+
+.column > div:not(.precip-div),
+.precip-div > div {
+  display: flex;
+  gap: 5px;
+}
+
+.column > div > p:first-child,
+.precip-div > div > p:first-child {
+  font-weight: bold;
+}
+
+.precip-div {
+  display: grid;
+  gap: 8px;
+}
+
+.precip-div > div:not(:first-child) {
+  font-size: 1.8rem;
 }
