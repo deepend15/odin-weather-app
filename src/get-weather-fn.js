@@ -22,7 +22,6 @@ export async function getWeather(location) {
     }
 
     const json = await response.json();
-    // console.log(json);
 
     const weatherObj = {};
 
@@ -43,7 +42,6 @@ export async function getWeather(location) {
     weatherObj.location = json.resolvedAddress;
     weatherObj.timeZone = json.timezone;
 
-    // console.log(weatherObj);
     return weatherObj;
   } catch (error) {
     console.error(error.message);

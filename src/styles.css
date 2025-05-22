@@ -14,19 +14,31 @@ html {
   padding: 0;
 }
 
-/* :root {
-    --main-tan: rgb(247, 212, 146);
-} */
-
 body {
   font-size: 1.6rem;
   font-family:
     system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  padding: 20px;
+  padding: 0 20px;
   display: grid;
-  gap: 50px;
   justify-items: center;
+  background-color: rgb(227, 247, 255);
+  background-image: url(./images/water.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  color: black;
+}
+
+body > div {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 75%;
+  min-height: 100vh;
+  background-color: rgb(149 196 214 / 0.8);
+  padding: 20px;
 }
 
 input,
@@ -52,6 +64,7 @@ h1 {
 
 .location-div {
   width: 455px;
+  max-width: 100%;
   display: grid;
   gap: 35px;
 }
@@ -89,7 +102,7 @@ form input {
 }
 
 .weather-div {
-  width: 85%;
+  max-width: 100%;
 }
 
 .loading {
@@ -124,6 +137,7 @@ form input {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  font-weight: 500;
 }
 
 .vibe-line img {
@@ -162,7 +176,7 @@ form input {
   margin-top: 45px;
   display: flex;
   justify-content: center;
-  gap: 75px;
+  gap: 60px;
   font-size: 2rem;
 }
 
@@ -175,6 +189,7 @@ form input {
 .precip-div > div {
   display: flex;
   gap: 5px;
+  flex-wrap: wrap;
 }
 
 .column > div > p:first-child,
