@@ -13,14 +13,13 @@ getWeatherBtn.addEventListener("click", (e) => {
     location.setCustomValidity("Umm you forgot something \u{1F480}");
   } else {
     e.preventDefault();
+    const weatherDiv = document.querySelector(".weather-div");
+    weatherDiv.textContent = "";
     getWeather(location.value).then((data) => {
       console.log(data);
-      const weatherDiv = document.querySelector(".weather-div");
-      weatherDiv.textContent = "";
 
       function isCity(string) {
         const regex = /^[a-zA-Z]/;
-
         return regex.test(string);
       }
 
@@ -121,6 +120,15 @@ getWeatherBtn.addEventListener("click", (e) => {
       rightColumn.append(precipDiv, sunrise, sunset);
       weatherDetailsDiv.append(leftColumn, rightColumn);
       weatherDiv.append(weatherDetailsDiv);
+    }).catch(() => {
+      const errorMessageDiv = document.createElement("div");
+      errorMessageDiv.classList.add("error-message-div");
+      const errorMessage1 = document.createElement("p");
+      errorMessage1.textContent = `No vibes found \u{1F643}`;
+      const errorMessage2 = document.createElement("p");
+      errorMessage2.textContent = `Try leveling up your search.`;
+      errorMessageDiv.append(errorMessage1, errorMessage2);
+      weatherDiv.append(errorMessageDiv);
     });
   }
 })
