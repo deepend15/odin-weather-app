@@ -110,6 +110,19 @@ form input {
   font-weight: bold;
 }
 
+.vibe-line {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.vibe-line img {
+  height: 35px;
+}
+
 .vibe-div > p:last-child {
   font-size: 1.8rem;
 }

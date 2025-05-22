@@ -12,7 +12,7 @@ export async function getWeather(location) {
 
   let formattedLocation = locationArray.join("");
 
-  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${formattedLocation}?key=BE4LHN4XH2WFAA3FXBB5GL4PE`;
+  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${formattedLocation}?key=BE4LHN4XH2WFAA3FXBB5GL4PE&iconSet=icons2`;
 
   try {
     const response = await fetch(url, { mode: "cors" });

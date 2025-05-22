@@ -36,8 +36,25 @@ getWeatherBtn.addEventListener("click", (e) => {
       line1Span.textContent = ` ${data.location}`;
       vibeDivLine1.append(`The vibes `, line1Preposition, line1Span, ` are:`);
       vibeDiv.appendChild(vibeDivLine1);
-      const vibeDivLine2 = document.createElement("p");
-      vibeDivLine2.textContent = `~${data.conditions}~`
+      const vibeDivLine2 = document.createElement("div");
+      vibeDivLine2.classList.add("vibe-line");
+      const weatherIconDiv1 = document.createElement("div");
+      const weatherIcon1 = document.createElement("img");
+      import(`./weather-icons/${data.icon}.svg`).then((icon) => {
+        weatherIcon1.src = icon.default;
+        weatherIcon1.setAttribute("alt", `Icon for ${data.conditions} weather conditions`);
+      }).catch((error) => console.error(error));
+      weatherIconDiv1.append(weatherIcon1);
+      const conditionsText = document.createElement("div");
+      conditionsText.textContent = `~${data.conditions}~`;
+      const weatherIconDiv2 = document.createElement("div");
+      const weatherIcon2 = document.createElement("img");
+      import(`./weather-icons/${data.icon}.svg`).then((icon) => {
+        weatherIcon2.src = icon.default;
+        weatherIcon2.setAttribute("alt", `Icon for ${data.conditions} weather conditions`);
+      }).catch((error) => console.error(error));
+      weatherIconDiv2.append(weatherIcon2);
+      vibeDivLine2.append(weatherIconDiv1, conditionsText, weatherIconDiv2);
       vibeDiv.appendChild(vibeDivLine2);
       const vibeDivLine3 = document.createElement("p");
       vibeDivLine3.textContent = `Sources say: ${data.description}`;
