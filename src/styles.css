@@ -134,6 +134,30 @@ form input {
   font-size: 1.8rem;
 }
 
+.alert-div {
+  margin-top: 30px;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  text-align: center;
+}
+
+.alert-div > p:first-child {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: red;
+}
+
+.alert-div > p:not(:first-child) {
+  margin-top: 10px;
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+
+.alert-div > p > span {
+  font-weight: bold;
+}
+
 .weather-details-div {
   margin-top: 45px;
   display: flex;

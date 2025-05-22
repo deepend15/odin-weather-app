@@ -65,6 +65,22 @@ getWeatherBtn.addEventListener("click", (e) => {
       vibeDiv.append(vibeDivLine3)
       weatherDiv.appendChild(vibeDiv);
 
+      if (data.alerts.length !== 0) {
+        const alertDiv = document.createElement("div");
+        alertDiv.classList.add("alert-div");
+        const alertLine1 = document.createElement("p");
+        alertLine1.textContent = `\uD83D\uDEA8\u00A0 FYI, ${data.alerts.length} live alert(s):`;
+        alertDiv.append(alertLine1);
+        for (const alert of data.alerts) {
+          const alertP = document.createElement("p");
+          const alertSpan = document.createElement("span");
+          alertSpan.textContent = `${alert.event}: `;
+          alertP.append(alertSpan, `${alert.headline}`);
+          alertDiv.append(alertP);
+        }
+        weatherDiv.appendChild(alertDiv);
+      }
+
       const weatherDetailsDiv = document.createElement("div");
       weatherDetailsDiv.classList.add("weather-details-div");
       const leftColumn = document.createElement("div");
@@ -149,7 +165,7 @@ getWeatherBtn.addEventListener("click", (e) => {
       const errorMessage2 = document.createElement("p");
       errorMessage2.textContent = `Try leveling up your search.`;
       errorMessageDiv.append(errorMessage1, errorMessage2);
-      weatherDiv.appendChild(errorMessageDiv);
+      weatherDiv.append(errorMessageDiv);
     });
   }
 })
