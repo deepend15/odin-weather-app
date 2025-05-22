@@ -15,7 +15,13 @@ getWeatherBtn.addEventListener("click", (e) => {
     e.preventDefault();
     const weatherDiv = document.querySelector(".weather-div");
     weatherDiv.textContent = "";
+    const loading = document.createElement("p");
+    loading.classList.add("loading");
+    loading.textContent = "loading, brb...";
+    weatherDiv.append(loading);
     getWeather(location.value).then((data) => {
+      weatherDiv.textContent = "";
+
       console.log(data);
 
       function isCity(string) {
@@ -40,20 +46,18 @@ getWeatherBtn.addEventListener("click", (e) => {
       vibeDivLine2.classList.add("vibe-line");
       const weatherIconDiv1 = document.createElement("div");
       const weatherIcon1 = document.createElement("img");
-      import(`./weather-icons/${data.icon}.svg`).then((icon) => {
-        weatherIcon1.src = icon.default;
-        weatherIcon1.setAttribute("alt", `Icon for ${data.conditions} weather conditions`);
-      }).catch((error) => console.error(error));
-      weatherIconDiv1.append(weatherIcon1);
-      const conditionsText = document.createElement("div");
-      conditionsText.textContent = `~${data.conditions}~`;
       const weatherIconDiv2 = document.createElement("div");
       const weatherIcon2 = document.createElement("img");
       import(`./weather-icons/${data.icon}.svg`).then((icon) => {
+        weatherIcon1.src = icon.default;
+        weatherIcon1.setAttribute("alt", `Icon for ${data.conditions} weather conditions`);
         weatherIcon2.src = icon.default;
         weatherIcon2.setAttribute("alt", `Icon for ${data.conditions} weather conditions`);
       }).catch((error) => console.error(error));
+      weatherIconDiv1.append(weatherIcon1);
       weatherIconDiv2.append(weatherIcon2);
+      const conditionsText = document.createElement("div");
+      conditionsText.textContent = `~${data.conditions}~`;
       vibeDivLine2.append(weatherIconDiv1, conditionsText, weatherIconDiv2);
       vibeDiv.appendChild(vibeDivLine2);
       const vibeDivLine3 = document.createElement("p");
@@ -145,7 +149,7 @@ getWeatherBtn.addEventListener("click", (e) => {
       const errorMessage2 = document.createElement("p");
       errorMessage2.textContent = `Try leveling up your search.`;
       errorMessageDiv.append(errorMessage1, errorMessage2);
-      weatherDiv.append(errorMessageDiv);
+      weatherDiv.appendChild(errorMessageDiv);
     });
   }
 })
