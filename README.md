@@ -3,3 +3,5 @@ The intent of this project is to create a basic weather forecast site that allow
 Image credit:
 
 'water.svg' by Francesco Ungaro: https://www.pexels.com/@francesco-ungaro/
+
+Live link: https://deepend15.github.io/odin-weather-app/
